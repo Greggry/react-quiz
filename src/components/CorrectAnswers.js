@@ -1,7 +1,9 @@
 import React from 'react'
 
-const CorrectAnswers = () => (
-  <div>CorrectAnswers</div>
+const CorrectAnswers = (props) => (
+  <div>
+    Correct: {props.correctAnswers}
+  </div>
 );
 
 export default CorrectAnswers;

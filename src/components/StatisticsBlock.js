@@ -9,9 +9,9 @@ class StatisticsBlock extends Component {
   render() {
     return (
       <div>
-        <CurrentQuestion />
-        <CorrectAnswers />
-        <WrongAnswers />
+        <CurrentQuestion questionNumber={this.props.statistics.currentQuestion} />
+        <CorrectAnswers correctAnswers={this.props.statistics.correctAnswers} />
+        <WrongAnswers wrongAnswers={this.props.statistics.wrongAnswers} />
       </div>
     );
   }
