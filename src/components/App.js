@@ -24,25 +24,27 @@ class App extends Component {
 
   //check if correct and advance to next question or end the quiz
   handleClick(answer) {
-    if (quiz[this.state.currentQuestion].correct === answer) { // correct answer
+    const {currentQuestion} = this.state;
+
+    if (quiz[currentQuestion].correct === answer) { // correct answer
       if (this.state.currentQuestion + 1 < quiz.length) { // if it wasn't the last question
         this.setState(prevState => {
           return {
-            currentQuestion: prevState.currentQuestion + 1
+            currentQuestion: prevState.currentQuestion + 1 // go to next question
           };
         });
       } else { // if it was the last question
-        console.log("you won!");
         this.setState({gameEnded: true});
       }
 
-      // increase correct stat
+      // increase correctAnswers
       this.setState(prevState => {
         return {
           correctAnswers: prevState.correctAnswers + 1
         }
       });
     } else {
+      // increment wrongAnswers
       this.setState(prevState => {
         return {
           wrongAnswers: prevState.wrongAnswers + 1
@@ -62,15 +64,17 @@ class App extends Component {
   }
 
   render() {
+    const {currentQuestion, gameEnded} = this.state;
+
     return (
       <div>
         <Title />
-        {this.state.gameEnded
+        {gameEnded
           ? null
-          : <QuestionBlock questionData={quiz[this.state.currentQuestion]} handleClick={this.handleClick} />
+          : <QuestionBlock questionData={quiz[currentQuestion]} handleClick={this.handleClick} />
         }
         <StatisticsBlock statistics={this.state} />
-        {this.state.gameEnded && <YouWon handleReset={this.handleReset}/>}
+        {gameEnded && <YouWon handleReset={this.handleReset}/>}
       </div>
     );
   }

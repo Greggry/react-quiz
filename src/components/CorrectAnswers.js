@@ -1,8 +1,8 @@
 import React from 'react'
 
-const CorrectAnswers = (props) => (
+const CorrectAnswers = ({correctAnswers}) => (
   <div>
-    Correct: {props.correctAnswers}
+    Correct: {correctAnswers}
   </div>
 );
 

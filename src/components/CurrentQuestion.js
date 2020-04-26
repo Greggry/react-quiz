@@ -1,8 +1,8 @@
 import React from 'react'
 
-const CurrentQuestion = (props) => (
+const CurrentQuestion = ({questionNumber}) => (
   <div>
-    Question: {props.questionNumber + 1 /* add one, because we count this prop from 0*/}
+    Question: {questionNumber + 1 /* add one, because we count this prop from 0*/}
   </div>
 );
 

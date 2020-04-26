@@ -1,8 +1,8 @@
 import React from 'react'
 
-const WrongAnswers = (props) => (
+const WrongAnswers = ({wrongAnswers}) => (
   <div>
-    Wrong: {props.wrongAnswers}
+    Wrong: {wrongAnswers}
   </div>
 );
 

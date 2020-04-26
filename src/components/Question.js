@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Question = (props) => (
-  <div>{props.question}</div>
+const Question = ({question}) => (
+  <div>{question}</div>
 );
 
 export default Question;

@@ -1,9 +1,9 @@
 import React from 'react'
 
-const YouWon = props => (
+const YouWon = ({handleReset}) => (
   <div>
     <p>You won, congratulations!</p>
-    <button onClick={props.handleReset}>Reset</button>
+    <button onClick={handleReset}>Reset</button>
   </div>
 );
 

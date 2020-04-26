@@ -1,18 +1,18 @@
 import React from 'react';
 
-const AnswerBlock = (props) => (
+const AnswerBlock = ({answer1, answer2, answer3, answer4, handleClick}) => (
   <ul>
     <li>
-      <button onClick={() => props.handleClick(props.answer1)}>{props.answer1}</button>
+      <button onClick={() => handleClick(answer1)}>{answer1}</button>
     </li>
     <li>
-      <button onClick={() => props.handleClick(props.answer2)}>{props.answer2}</button>
+      <button onClick={() => handleClick(answer2)}>{answer2}</button>
     </li>
     <li>
-      <button onClick={() => props.handleClick(props.answer3)}>{props.answer3}</button>
+      <button onClick={() => handleClick(answer3)}>{answer3}</button>
     </li>
     <li>
-      <button onClick={() => props.handleClick(props.answer4)}>{props.answer4}</button>
+      <button onClick={() => handleClick(answer4)}>{answer4}</button>
     </li>
   </ul>
 );
