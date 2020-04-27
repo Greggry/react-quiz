@@ -1,7 +1,9 @@
 import React from 'react';
 
-import Question from './Question'
-import AnswerBlock from './AnswerBlock'
+import Question from './Question';
+import AnswerBlock from './AnswerBlock';
+
+import './questionBlockStyles.css'
 
 const QuestionBlock = ({questionData, handleClick, handleReset}) => (
   <div>

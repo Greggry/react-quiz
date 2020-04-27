@@ -1,0 +1,15 @@
+.answer:hover {
+  cursor: pointer;
+  background-color: var(--dimmerBgColor);
+}
+
+ul {
+  list-style: lower-alpha;
+  list-style-position: inside;
+  padding: 0;
+  margin: 10px 0;
+}
+
+ul > li {
+  padding: 5px 0;
+}

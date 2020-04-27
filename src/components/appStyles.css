@@ -1,0 +1,54 @@
+/* On top of the App component,
+  this stylesheet defines the look of YouWon and Title */
+
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: black;
+  background-color: var(--bgColor);
+  box-sizing: border-box;
+  padding: 20px 0 20px 20px;
+}
+
+.btn {
+  display: block;
+  background-color: var(--bgColor);
+  border: 1px solid var(--auxiliaryColor1);
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 1em;
+}
+
+.btn:hover {
+  background-color: var(--auxiliaryColor1);
+  color: var(--bgColor);
+  text-shadow: 1px 1px 2px #000000;
+}
+
+h1 {
+  font-size: 3em;
+  margin: 10px 0;
+}
+
+.separator {
+  margin: 10px auto;
+  width: 75%;
+  min-height: 2px;
+  max-height: 2px;
+  background-color: var(--auxiliaryColor1);
+  border-radius: 2px;
+}
+
+@media (min-width: 800px) {
+  body {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 600px && max-width: 799px) {
+  body {
+    font-size: 2rem;
+  }
+}

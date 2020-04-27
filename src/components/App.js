@@ -4,8 +4,11 @@ import Title from './title/Title'
 import QuestionBlock from './questionBlock/QuestionBlock'
 import StatisticsBlock from './statisticsBlock/StatisticsBlock'
 import YouWon from './youWon/YouWon'
+import Separator from './separator/Separator.js'
 
 import quiz from '../quiz.js'
+
+import './appStyles.css'
 
 class App extends Component {
 
@@ -15,18 +18,22 @@ class App extends Component {
       currentQuestion: 0, // count from 0, because we iterate through an array
       correctAnswers: 0,
       wrongAnswers: 0,
-      gameEnded: false
+      gameEnded: false,
+      blinkClass: '' // will be set to blink-${color}
     };
 
     this.handleClick = this.handleClick.bind(this);
     this.handleReset = this.handleReset.bind(this);
   }
 
-  //check if correct and advance to next question or end the quiz
+  // check if correct and advance to next question or end the quiz
   handleClick(answer) {
     const {currentQuestion} = this.state;
 
     if (quiz[currentQuestion].correct === answer) { // correct answer
+
+      this.blink('green');
+
       if (this.state.currentQuestion + 1 < quiz.length) { // if it wasn't the last question
         this.setState(prevState => {
           return {
@@ -39,11 +46,10 @@ class App extends Component {
 
       // increase correctAnswers
       this.setState(prevState => {
-        return {
-          correctAnswers: prevState.correctAnswers + 1
-        }
+        return {correctAnswers: prevState.correctAnswers + 1}
       });
     } else {
+      this.blink('red');
       // increment wrongAnswers
       this.setState(prevState => {
         return {
@@ -51,6 +57,16 @@ class App extends Component {
         }
       });
     }
+  }
+
+  blink(color) {
+    const colorClass = 'blink-' + color;
+
+    this.setState({blinkClass: colorClass});
+
+    setTimeout(() => {
+      this.setState({blinkClass: ''});
+    }, 150); // removes the class after 0.15 seconds
   }
 
   // reset to initial state
@@ -65,15 +81,21 @@ class App extends Component {
 
   render() {
     const {currentQuestion, gameEnded} = this.state;
-
     return (
-      <div>
-        <Title />
+      <div className={`app ${this.state.blinkClass}`}>
+        <Title className="title" />
+
         {gameEnded
           ? null
-          : <QuestionBlock questionData={quiz[currentQuestion]} handleClick={this.handleClick} />
+          : <div>
+              <Separator />
+              <QuestionBlock questionData={quiz[currentQuestion]} handleClick={this.handleClick} />
+              <Separator />
+            </div>
         }
+
         <StatisticsBlock statistics={this.state} />
+
         {gameEnded && <YouWon handleReset={this.handleReset}/>}
       </div>
     );

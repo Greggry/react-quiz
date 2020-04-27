@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Question = ({question}) => (
-  <div>{question}</div>
+  <b>{question}</b>
 );
 
 export default Question;
