@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-import Title from './Title'
-import QuestionBlock from './QuestionBlock'
-import StatisticsBlock from './StatisticsBlock'
-import YouWon from './YouWon'
+import Title from './title/Title'
+import QuestionBlock from './questionBlock/QuestionBlock'
+import StatisticsBlock from './statisticsBlock/StatisticsBlock'
+import YouWon from './youWon/YouWon'
 
 import quiz from '../quiz.js'
 
